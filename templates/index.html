@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <h1>Tabela</h1>
+    <h1>Usuarios</h1>
     <table class="table">
         <thead>
             <tr>
@@ -17,15 +17,24 @@
             </tr>
         </thead>
         <tbody>
-            {% for row in data %}
-            <tr>
-                <td>{{ row[0] }}</td>
-                <td>{{ row[1] }}</td>
-                <td>{{ row[2] }}</td>
-                <td>{{ row[3] }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
+    {% for row in data %}
+    <tr>
+        <td>{{ row[0] }}</td>
+        <td>{{ row[1] }}</td>
+        <td>{{ row[2] }}</td>
+        <td>{{ row[3] }}</td>
+        <td>
+            <form method="POST" action="{{ url_for('deletar_usuario', id=row[0]) }}">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="btn btn-danger">Deletar</button>
+            </form>
+        </td>
+        <td>
+            <a href="{{ url_for('editar_usuario', id=row[0]) }}" class="btn btn-primary">Editar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
     </table>
 
 <a href="{{ url_for('adicionar_usuario') }}" class="btn btn-primary">Criar Usuário</a>
