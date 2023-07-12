@@ -37,7 +37,7 @@ def adicionar_usuario():
         cursor.close()
         conn.close()
 
-        return 'Usuário adicionado com sucesso!'
+        return redirect(url_for('show_table'))
     else:
         return render_template('new.html')
 

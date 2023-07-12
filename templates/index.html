@@ -31,9 +31,12 @@
         <td>
             <form method="POST" action="{{ url_for('deletar_usuario', id=row[0]) }}">
                 <input type="hidden" name="_method" value="DELETE">
-                <button type="submit" class="btn btn-danger">Deletar</button>
+                 <div class="btn-group" role="group" aria-label="Opções de usuário">
+                    <button type="submit" class="btn btn-danger">Deletar</button>
+                        <a href="{{ url_for('editar_usuario', id=row[0]) }}" class="btn btn-primary">Editar</a>
+                </div>
             </form>
-            <a href="{{ url_for('editar_usuario', id=row[0]) }}" class="btn btn-primary">Editar</a>
+
         </td>
 
     </tr>
