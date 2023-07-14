@@ -12,4 +12,4 @@ class DevelopmentConfig(Config):
 class ProductionConfig(Config):
     DEBUG = False
     # Configurações específicas para ambiente de produção
-    DATABASE_URI = 'postgresql://rafael/banco_de_dados'
+    DATABASE_URI = 'postgresql://rafael:kYZA6JXz9KKleygUmD4zJb3EMcyBjsO0@dpg-cinvestgkuvudi9v5370-a:5432/banco_de_dados_odbf'

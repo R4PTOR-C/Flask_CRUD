@@ -1,12 +1,9 @@
-from config import DevelopmentConfig, ProductionConfig
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, url_for, request, redirect
 import psycopg2
-
+from config import DevelopmentConfig, ProductionConfig
 
 app = Flask(__name__)
-app.config.from_object(DevelopmentConfig)
-
-
+app.config.from_object(ProductionConfig)
 
 @app.route('/')
 def show_table():
