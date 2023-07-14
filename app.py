@@ -14,6 +14,7 @@ def show_table():
     data = cursor.fetchall()
     cursor.close()
     conn.close()
+    
 
     # Renderizar o template HTML e passar os dados para a página
     return render_template('index.html', data=data)
