@@ -8,7 +8,7 @@ app.config.from_object(ProductionConfig)
 @app.route('/')
 def show_table():
     # Código para buscar dados da tabela no banco de dados
-    conn = psycopg2.connect(host='localhost', user='rafael', password='nova_senha', database='banco_de_dados')
+    conn = psycopg2.connect(host='dpg-cinvestgkuvudi9v5370-a', user='rafael', password='kYZA6JXz9KKleygUmD4zJb3EMcyBjsO0', database='banco_de_dados_odbf')
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM usuarios')
     data = cursor.fetchall()
