@@ -25,12 +25,12 @@ def adicionar_usuario():
         # Lógica para adicionar o novo usuário ao banco de dados
         nome = request.form.get('nome')
         email = request.form.get('email')
-        idade = request.form.get('idade')
+
 
         # Conecta-se ao banco de dados e insere o novo usuário
         conn = psycopg2.connect(host='dpg-ciqkhe6nqql4qa7csi10-a.oregon-postgres.render.com', user='rafael', password='PuObkrabERkdbxhSFmGtAuXTum4fTjr5', database='banco_de_dados_rvj4')
         cursor = conn.cursor()
-        cursor.execute('INSERT INTO usuarios (nome, email, idade) VALUES (%s, %s, %s)', (nome, email, idade))
+        cursor.execute('INSERT INTO usuarios (nome, email) VALUES (%s, %s)', (nome, email))
         conn.commit()
         cursor.close()
         conn.close()
@@ -71,11 +71,11 @@ def atualizar_usuario(id):
     # Lógica para atualizar os dados do usuário com o ID fornecido
     nome = request.form.get('nome')
     email = request.form.get('email')
-    idade = request.form.get('idade')
+
 
     conn = psycopg2.connect(host='dpg-ciqkhe6nqql4qa7csi10-a.oregon-postgres.render.com', user='rafael', password='PuObkrabERkdbxhSFmGtAuXTum4fTjr5', database='banco_de_dados_rvj4')
     cursor = conn.cursor()
-    cursor.execute('UPDATE usuarios SET nome = %s, email = %s, idade = %s WHERE id = %s', (nome, email, idade, id))
+    cursor.execute('UPDATE usuarios SET nome = %s, email = %s WHERE id = %s', (nome, email, id))
     conn.commit()
     cursor.close()
     conn.close()
