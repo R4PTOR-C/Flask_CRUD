@@ -8,7 +8,7 @@ app.config.from_object(ProductionConfig)
 @app.route('/')
 def show_table():
     # Código para buscar dados da tabela no banco de dados
-    conn = psycopg2.connect(host='localhost', user='rafael', password='nova_senha', database='banco_de_dados')
+    conn = psycopg2.connect(host='dpg-ciqkhe6nqql4qa7csi10-a.oregon-postgres.render.com', user='rafael', password='PuObkrabERkdbxhSFmGtAuXTum4fTjr5', database='banco_de_dados_rvj4')
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM usuarios')
     data = cursor.fetchall()
@@ -28,7 +28,7 @@ def adicionar_usuario():
         idade = request.form.get('idade')
 
         # Conecta-se ao banco de dados e insere o novo usuário
-        conn = psycopg2.connect(host='localhost', user='rafael', password='nova_senha', database='banco_de_dados')
+        conn = psycopg2.connect(host='dpg-ciqkhe6nqql4qa7csi10-a.oregon-postgres.render.com', user='rafael', password='PuObkrabERkdbxhSFmGtAuXTum4fTjr5', database='banco_de_dados_rvj4')
         cursor = conn.cursor()
         cursor.execute('INSERT INTO usuarios (nome, email, idade) VALUES (%s, %s, %s)', (nome, email, idade))
         conn.commit()
@@ -43,7 +43,7 @@ def adicionar_usuario():
 def deletar_usuario(id):
     # Lógica para deletar o usuário com o ID fornecido
 
-    conn = psycopg2.connect(host='localhost', user='rafael', password='nova_senha', database='banco_de_dados')
+    conn = psycopg2.connect(host='dpg-ciqkhe6nqql4qa7csi10-a.oregon-postgres.render.com', user='rafael', password='PuObkrabERkdbxhSFmGtAuXTum4fTjr5', database='banco_de_dados_rvj4')
     cursor = conn.cursor()
     cursor.execute('DELETE FROM usuarios WHERE id = %s', (id,))
     conn.commit()
@@ -55,7 +55,7 @@ def deletar_usuario(id):
 @app.route('/editar_usuario/<int:id>', methods=['GET'])
 def editar_usuario(id):
     # Lógica para buscar os dados do usuário com o ID fornecido
-    conn = psycopg2.connect(host='localhost', user='rafael', password='nova_senha', database='banco_de_dados')
+    conn = psycopg2.connect(host='dpg-ciqkhe6nqql4qa7csi10-a.oregon-postgres.render.com', user='rafael', password='PuObkrabERkdbxhSFmGtAuXTum4fTjr5', database='banco_de_dados_rvj4')
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM usuarios WHERE id = %s', (id,))
     usuario = cursor.fetchone()
@@ -73,7 +73,7 @@ def atualizar_usuario(id):
     email = request.form.get('email')
     idade = request.form.get('idade')
 
-    conn = psycopg2.connect(host='localhost', user='rafael', password='nova_senha', database='banco_de_dados')
+    conn = psycopg2.connect(host='dpg-ciqkhe6nqql4qa7csi10-a.oregon-postgres.render.com', user='rafael', password='PuObkrabERkdbxhSFmGtAuXTum4fTjr5', database='banco_de_dados_rvj4')
     cursor = conn.cursor()
     cursor.execute('UPDATE usuarios SET nome = %s, email = %s, idade = %s WHERE id = %s', (nome, email, idade, id))
     conn.commit()
