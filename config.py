@@ -7,9 +7,14 @@ class Config(object):
 class DevelopmentConfig(Config):
     DEBUG = True
     # Configurações específicas para ambiente de desenvolvimento
-    DATABASE_URI = 'postgresql://rafael/banco_de_dados'
-
+    DATABASE_HOST = 'localhost'  # Set the development database host here
+    DATABASE_USER = 'rafael'
+    DATABASE_PASSWORD = 'nova_senha'
+    DATABASE_NAME = 'banco_de_dados'
 class ProductionConfig(Config):
     DEBUG = False
     # Configurações específicas para ambiente de produção
-    DATABASE_URI = 'postgresql://rafael:kYZA6JXz9KKleygUmD4zJb3EMcyBjsO0@dpg-cinvestgkuvudi9v5370-a:5432/banco_de_dados_odbf'
+    DATABASE_HOST = 'dpg-ciqkhe6nqql4qa7csi10-a.oregon-postgres.render.com'  # Set the production database host here
+    DATABASE_USER = 'rafael'
+    DATABASE_PASSWORD = 'PuObkrabERkdbxhSFmGtAuXTum4fTjr5'
+    DATABASE_NAME = 'banco_de_dados_rvj4'
